@@ -1,7 +1,7 @@
 {
   "name": "wagtail-starter-template",
   "version": "0.1.0",
-  "description": "A blog project tempĺate with ready-to-use build tasks based on Wagtail CMS",
+  "description": "A blog project template with ready-to-use build tasks based on Wagtail CMS",
   "repository": "https://github.com/felipeozalmeida/wagtail-starter-template",
   "author": "Felipe Almeida <felipeortalmeida@gmail.com>",
   "license": "MIT",
