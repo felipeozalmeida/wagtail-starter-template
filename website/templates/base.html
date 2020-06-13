@@ -1,0 +1,33 @@
+{% load wagtailuserbar %}
+
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {% include "layouts/head_seo.html" %}
+
+        {% include "layouts/head_styles.html" %}
+
+        {% block extra_head %}
+            {# Override this in templates to add extra head tags #}
+        {% endblock %}
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{{ self.get_verbose_name|slugify }}-template{% endblock %}">
+        {% wagtailuserbar %}
+
+        {% block content %}{% endblock %}
+
+        {% include "layouts/body_scripts.html" %}
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

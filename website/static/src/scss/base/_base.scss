@@ -1,0 +1,7 @@
+a {
+  color: $body-color;
+
+  &:hover {
+    color: lighten($body-color, 15%);
+  }
+}

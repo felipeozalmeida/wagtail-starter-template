@@ -1,0 +1,13 @@
+// Width and height by viewports
+
+@each $prop, $abbrev in ('width': 'w', 'height': 'h') {
+  @each $name, $width in $grid-breakpoints {
+    @each $size, $length in $sizes {
+      .#{$abbrev}-#{$name}-#{$size} {
+        @media (min-width: $width) {
+          #{$prop}: $length !important;
+        }
+      }
+    }
+  }
+}

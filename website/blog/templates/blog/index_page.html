@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags %}
+
+{% block extra_head %}
+    {% comment "SEO page type" %}{% endcomment %}
+    <meta property="og:type" content="website">
+
+    {% comment "SEO page description" %}{% endcomment %}
+    {% if self.search_description %}
+        <meta name="description" content="{{ self.search_description }}">
+        <meta property="og:description" content="{{ self.search_description }}">
+        <meta name="twitter:description" content="{{ self.search_description }}">
+        <meta name="itemDescription" content="{{ self.search_description }}">
+        <meta itemprop="description" content="{{ self.search_description }}">
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+<header>
+    <nav>navbar</nav>
+    {% if featured_posts|length > 0 %}
+        <section>loop through featured posts</section>
+    {% endif %}
+</header>
+<main class="container w-lg-75 w-xl-50 px-xl-0 py-4">
+    {% if posts|length > 0 %}
+        <div class="row grid mb-n4" data-masonry="{ 'itemSelector': '.grid-item' }">
+            {% for post in posts %}
+                <div class="col-sm-6 grid-item mb-4">
+                    {{ post.title }}
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2><i class="fas fa-exclamation-circle"></i> Posts not found.</h2>
+    {% endif %}
+</main>
+{% endblock content %}
+
+{% block extra_js %}
+    {% if posts|length > 0 %}
+        <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+    {% endif %}
+{% endblock %}
