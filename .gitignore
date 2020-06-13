@@ -1,0 +1,11 @@
+# System folders
+.idea/
+.vscode/
+
+# Project folders
+.venv/
+__pycache__/
+node_modules/
+media/
+/static/
+dist/

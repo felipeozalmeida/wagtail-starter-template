@@ -1,0 +1,31 @@
+{
+  "name": "wagtail-starter-template",
+  "version": "0.1.0",
+  "description": "A blog project tempĺate with ready-to-use build tasks based on Wagtail CMS",
+  "repository": "https://github.com/felipeozalmeida/wagtail-starter-template",
+  "author": "Felipe Almeida <felipeortalmeida@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "gulp --production",
+    "serve": "gulp watch"
+  },
+  "engines": {
+    "node": "12.16",
+    "yarn": "1.22"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-header": "^2.0.9",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-stylelint": "^13.0.0",
+    "minimist": "^1.2.5",
+    "node-sass": "^4.14.1",
+    "postcss-preset-env": "^6.7.0",
+    "stylelint": "^13.6.0",
+    "stylelint-config-sass-guidelines": "^7.0.0"
+  }
+}

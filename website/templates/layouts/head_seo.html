@@ -1,0 +1,66 @@
+{% load static wagtailimages_tags %}
+
+<title>
+    {% block title %}
+        {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+    {% endblock %}
+    {% comment %}
+        {% block title_suffix %}
+            {% with self.get_site.site_name as site_name %}
+                {% if site_name %}| {{ site_name }}{% endif %}
+            {% endwith %}
+        {% endblock %}
+    {% endcomment %}
+</title>
+
+
+{% comment "Favicons" %}{% endcomment %}
+<link rel="apple-touch-icon" sizes="any" href="{% static 'img/apple-touch-icon.png' %}" />
+<link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+<link rel="icon" href="{% static 'img/favicon.png' %}">
+
+
+{% comment "Browser colors" %}{% endcomment %}
+<meta name="theme-color" content="#ccc">
+<meta name="msapplication-navbutton-color" content="#ccc">
+
+
+{% comment "General SEO" %}{% endcomment %}
+<meta name="robots" content="index,follow">
+<meta name="language" content="en-us">
+<meta name="rating" content="general">
+<meta property="og:url" content="{{ self.full_url }}">
+<meta property="og:locale" content="en_US" />
+{% with self.get_site.site_name as site_name %}
+    {% if site_name %}<meta property="og:site_name" content="{{ site_name }}" />{% endif %}
+{% endwith %}
+
+
+{% comment "SEO page titles" %}{% endcomment %}
+{% if self.seo_title %}
+    <meta property="og:title" content="{{ self.seo_title }}">
+    <meta name="twitter:title" content="{{ self.seo_title }}">
+    <meta name="itemName" content="{{ self.seo_title }}">
+    <meta itemprop="name" content="{{ self.seo_title }}">
+{% else %}
+    <meta property="og:title" content="{{ self.title }}">
+    <meta name="twitter:title" content="{{ self.title }}">
+    <meta name="itemName" content="{{ self.title }}">
+    <meta itemprop="name" content="{{ self.title }}">
+{% endif %}
+
+
+{% comment "Analytics plugins" %}{% endcomment %}
+{% comment "TODO: register site in Google Analytics" %}
+    {% if not request.is_preview and not debug %}
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=<random-string>"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '<random-string>');
+        </script>
+    {% endif %}
+{% endcomment %}

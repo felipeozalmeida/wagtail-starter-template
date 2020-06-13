@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+
+{% block content %}
+<header>
+    <nav>navbar</nav>
+</header>
+<main class="container w-lg-75 w-xl-50 px-lg-0 py-5 text-break">
+    <h1 class="text-center mb-5">{{ self.title }}</h1>
+    {{ self.body|richtext }}
+</main>
+{% endblock %}
