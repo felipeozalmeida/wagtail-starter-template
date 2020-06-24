@@ -1,5 +1,16 @@
 # Wagtail Starter Template
 
+A batteries-included blog project template made with Wagtail. It aims to provide an enjoyable experience when building websites. It features:
+
+- Gulp build steps
+- Sass support (linting, minification & source map generation)
+- Bootstrap 4 (Sass version)
+- Font Awesome 5 (Sass version)
+- Solid architecture (The 7-1 Pattern)
+- Default blog models (posts and featured posts)
+- Working category system (includes filtering)
+
+
 
 ## How it was bootstrapped
 
